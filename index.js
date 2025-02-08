@@ -7,11 +7,13 @@ const PORT = 8080 ;
 const app = express();
 app.use(cors(
   {
-    origin: 'http://localhost:5173',
-    methods:['GET','POST','PUT','DELETE'] ,
+    origin: 'http://localhost:5173/',
+    methods: "GET,POST,PUT,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
     credentials:true ,
   }
 ))
+app.use(cors());
 app.use(express.json())
 app.use("/users",userRouter)
 app.use("/products",productRouter)
